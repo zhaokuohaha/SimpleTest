@@ -1,6 +1,8 @@
 ﻿using Xunit;
 using Microsoft.Extensions.Caching.Memory;
 using System;
+using System.Json;
+using Newtonsoft.Json;
 
 namespace SimpleTests
 {
@@ -63,5 +65,55 @@ namespace SimpleTests
 			var b = (User)cache.Get("user");
 			Assert.Equal("Bar", b.Name);
 		}
+
+		/// <summary>
+		/// 自定义扩展, 转成字符串后缓存, Bar 更改没有生效
+		/// </summary>
+		[Fact]
+		public void TestMyExtension()
+		{
+			var cache = new MemoryCache(new MemoryCacheOptions());
+
+			cache.MySet("user", new User { Name = "Foo" });
+			var f = cache.MyGet<User>("user");
+			Assert.Equal("Foo", f.Name);
+
+			f.Name = "Bar";
+			var b = cache.MyGet<User>("user");
+			Assert.Equal("Foo", b.Name);
+		}
 	}
+
+	public static class MemoryCacheExtensions
+	{
+		class Entry<T>
+		{
+			public T Value { get; set; }
+		}
+
+		public static T MyGet<T>(this IMemoryCache cache, object key)
+		{
+			var res = cache.TryGetValue(key, out string entryStr);
+			if (!res)
+				return default;
+
+			var entry = JsonConvert.DeserializeObject<Entry<T>>(entryStr);
+			return entry.Value;
+		}
+
+		public static bool MySet<T>(this IMemoryCache cache, object key, T value)
+		{
+			var entry = new Entry<T> { Value = value };
+			try
+			{
+				cache.Set(key, JsonConvert.SerializeObject(entry));
+				return true;
+			}
+			catch 
+			{ 
+				return false;
+			}
+		}
+	}
+
 }
