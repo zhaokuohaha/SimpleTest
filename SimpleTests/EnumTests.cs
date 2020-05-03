@@ -78,6 +78,7 @@ namespace SimpleTests
 	{
 		public static string GetDescription(this Enum e)
 		{
+			
 			var fi = e.GetType().GetField(e.ToString());
 			var attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
 			if (attributes.Length > 0)
@@ -153,6 +154,16 @@ namespace SimpleTests
 		public override string ToString()
 		{
 			return this._value;
+		}
+	}
+
+	public struct StrEnum
+	{
+		public string s;
+
+		public static implicit operator StrEnum(string value)
+		{
+			return new StrEnum() { s = value};
 		}
 	}
 }
