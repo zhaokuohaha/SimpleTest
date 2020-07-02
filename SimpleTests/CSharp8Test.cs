@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace SimpleTests
+namespace SimpleTests.CSharp8
 {
 	public class CSharp8Test
 	{

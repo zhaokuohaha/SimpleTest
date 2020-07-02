@@ -8,7 +8,7 @@ using NPOI.SS.Formula.Functions;
 using System.Linq;
 using System.IO;
 
-namespace SimpleTests
+namespace SimpleTests.Npoi
 {
 	public class NpoiTest
 	{
@@ -27,7 +27,6 @@ namespace SimpleTests
 
 			var data = (new Mapper(path)).Take<NUser>();
 			Assert.Null(data.Last().Value.Name);
-
 		}
 	}
 

@@ -4,7 +4,7 @@ using System.Runtime.Caching;
 using System.Text;
 using Xunit;
 
-namespace SimpleTests
+namespace SimpleTests.ValueAndRefType
 {
 	/// <summary>
 	/// 测试值类型和引用类型

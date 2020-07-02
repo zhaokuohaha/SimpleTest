@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using Xunit;
 
-namespace SimpleTests
+namespace SimpleTests.Enum
 {
 	public class EnumTests
 	{

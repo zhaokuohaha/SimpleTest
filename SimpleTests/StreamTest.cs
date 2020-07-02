@@ -7,7 +7,7 @@ using Xunit;
 using Xunit.Abstractions;
 using System.Text.Json;
 
-namespace SimpleTests
+namespace SimpleTests.Stream
 {
 	public class StreamTest
 	{

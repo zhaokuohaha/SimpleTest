@@ -9,7 +9,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace SimpleTests
+namespace SimpleTests.File
 {
 	public class FileTest
 	{

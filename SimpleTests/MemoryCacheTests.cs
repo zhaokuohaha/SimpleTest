@@ -4,7 +4,7 @@ using System;
 using System.Json;
 using Newtonsoft.Json;
 
-namespace SimpleTests
+namespace SimpleTests.MemoryCache
 {
 	public class MemoryCacheTests
 	{

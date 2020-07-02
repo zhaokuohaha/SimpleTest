@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleTests
+namespace SimpleTests.TryCatch
 {
 	/// <summary>
 	/// 测试一下TryCatch的性能
