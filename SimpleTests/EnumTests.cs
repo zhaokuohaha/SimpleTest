@@ -30,7 +30,7 @@ namespace SimpleTests.Enum
 			var f1 = OperateFlag.A | OperateFlag.B;
 			Assert.Equal(OperateFlag.A, f1 & OperateFlag.A);
 			Assert.False(OperateFlag.A == f1);
-			var f2 = Enum.Parse<OperateFlag>("A, B");
+			var f2 = System.Enum.Parse<OperateFlag>("A, B");
 			Assert.Equal(f1, f2);
 		}
 
@@ -49,7 +49,7 @@ namespace SimpleTests.Enum
 
 			var f1 = Operate.A | Operate.B;
 			Assert.Equal(Operate.A, f1 & Operate.A);
-			var f2 = Enum.Parse<Operate>("A, B");
+			var f2 = System.Enum.Parse<Operate>("A, B");
 			Assert.Equal(f1, f2);
 		}
 
@@ -72,7 +72,7 @@ namespace SimpleTests.Enum
 
 	public static class EnumExtension
 	{
-		public static string GetDescription(this Enum e)
+		public static string GetDescription(this System.Enum e)
 		{
 			
 			var fi = e.GetType().GetField(e.ToString());

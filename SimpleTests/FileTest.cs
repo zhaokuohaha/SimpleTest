@@ -18,7 +18,7 @@ namespace SimpleTests.File
 		{
 			var filesUrl = new[]{ "https://github.com/favicon.ico"};
 			var bytes = await new FileHelper().ZipFiles(filesUrl);
-			await File.WriteAllBytesAsync("./icons.zip", bytes);
+			await System.IO.File.WriteAllBytesAsync("./icons.zip", bytes);
 		}
 
 		[Fact]

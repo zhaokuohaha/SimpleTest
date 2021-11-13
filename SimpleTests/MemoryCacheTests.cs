@@ -16,7 +16,7 @@ namespace SimpleTests.MemoryCache
 		[Fact]
 		public void TestMemoryObject()
 		{
-			var cache = new MemoryCache(new MemoryCacheOptions());
+			var cache = new Microsoft.Extensions.Caching.Memory.MemoryCache(new MemoryCacheOptions());
 
 			cache.Set("user", new User { Name = "Foo" });
 			var f = cache.Get<User>("user");
@@ -34,7 +34,7 @@ namespace SimpleTests.MemoryCache
 		[Fact]
 		public void TestMemoryObject2()
 		{
-			var cache = new MemoryCache(new MemoryCacheOptions());
+			var cache = new Microsoft.Extensions.Caching.Memory.MemoryCache(new MemoryCacheOptions());
 
 			var entry = cache.CreateEntry("user");
 			entry.Value = new User { Name = "Foo" };
@@ -72,7 +72,7 @@ namespace SimpleTests.MemoryCache
 		[Fact]
 		public void TestMyExtension()
 		{
-			var cache = new MemoryCache(new MemoryCacheOptions());
+			var cache = new Microsoft.Extensions.Caching.Memory.MemoryCache(new MemoryCacheOptions());
 
 			cache.MySet("user", new User { Name = "Foo" });
 			var f = cache.MyGet<User>("user");

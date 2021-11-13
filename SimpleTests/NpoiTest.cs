@@ -22,7 +22,7 @@ namespace SimpleTests.Npoi
 			foreach(var userBatch in new[] { u1, u2 })
 			{
 				var mapper = new Mapper();
-				mapper.Save(path, userBatch, 0, !File.Exists(path));
+				mapper.Save(path, userBatch, 0, !System.IO.File.Exists(path));
 			}
 
 			var data = (new Mapper(path)).Take<NUser>();
